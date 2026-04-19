@@ -3,5 +3,8 @@
   "version": "0.1.0",
   "description": "Modern UI component library by Alex Rebula",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
 }
