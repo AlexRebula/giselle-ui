@@ -39,7 +39,9 @@ export function ThemeProvider({ children, defaultTheme = 'system' }: ThemeProvid
     return defaultTheme;
   });
 
-  const resolvedTheme = theme === 'system' ? getSystemTheme() : theme;
+  const [systemTheme, setSystemTheme] = React.useState<ResolvedTheme>(() => getSystemTheme());
+
+  const resolvedTheme = theme === 'system' ? systemTheme : theme;
 
   React.useEffect(() => {
     document.documentElement.dataset.theme = resolvedTheme;
@@ -53,8 +55,10 @@ export function ThemeProvider({ children, defaultTheme = 'system' }: ThemeProvid
     }
 
     const media = window.matchMedia('(prefers-color-scheme: dark)');
+    setSystemTheme(media.matches ? 'dark' : 'light');
+
     const onChange = () => {
-      document.documentElement.dataset.theme = getSystemTheme();
+      setSystemTheme(media.matches ? 'dark' : 'light');
     };
 
     media.addEventListener('change', onChange);
