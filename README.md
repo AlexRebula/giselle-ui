@@ -79,7 +79,14 @@ Currently focused on **React + TypeScript** with a clean, accessible, and highly
 - The library is being extracted and refined from my personal portfolio project
 
 ### Vision
-Giselle UI aims to become a consistent, high-quality component library across multiple frameworks:
+
+**Giselle UI** package separates data from presentation.
+
+This clean boundary makes components more reusable, easier to test, and simpler to evolve over time.
+It is the foundation of the Giselle UI ecosystem and can be used independently in any project.
+
+We aim for this package to become a consistent, high-quality component library across multiple frameworks:
+
 - React (current focus)
 - Angular (planned)
 - Vue (planned)
