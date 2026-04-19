@@ -66,9 +66,8 @@ This package is configured with `main`, `module`, `types`, and `exports` fields 
 - Publish official Giselle UI packages for Angular
 - Publish official Giselle UI packages for Vue
 
-## License
+## Project Vision
 
-MIT
 **A modern, framework-agnostic UI component library and design system.**
 
 Currently focused on **React + TypeScript** with a clean, accessible, and highly reusable component set built on top of modern best practices.
@@ -104,3 +103,7 @@ Stay tuned — the first components will be published soon.
 ---
 
 Made with ❤️ by [Alex Rebula](https://github.com/AlexRebula)
+
+## License
+
+MIT
