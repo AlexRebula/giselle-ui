@@ -55,11 +55,14 @@ export function ThemeProvider({ children, defaultTheme = 'system' }: ThemeProvid
     }
 
     const media = window.matchMedia('(prefers-color-scheme: dark)');
-    const nextTheme: ResolvedTheme = media.matches ? 'dark' : 'light';
-    setSystemTheme((currentTheme) => (currentTheme === nextTheme ? currentTheme : nextTheme));
+    const applySystemTheme = (nextTheme: ResolvedTheme) => {
+      setSystemTheme((currentTheme) => (currentTheme === nextTheme ? currentTheme : nextTheme));
+    };
+
+    applySystemTheme(media.matches ? 'dark' : 'light');
 
     const onChange = (event: MediaQueryListEvent) => {
-      setSystemTheme(event.matches ? 'dark' : 'light');
+      applySystemTheme(event.matches ? 'dark' : 'light');
     };
 
     media.addEventListener('change', onChange);
