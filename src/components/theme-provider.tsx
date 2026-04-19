@@ -57,8 +57,8 @@ export function ThemeProvider({ children, defaultTheme = 'system' }: ThemeProvid
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     setSystemTheme(media.matches ? 'dark' : 'light');
 
-    const onChange = () => {
-      setSystemTheme(media.matches ? 'dark' : 'light');
+    const onChange = (event: MediaQueryListEvent) => {
+      setSystemTheme(event.matches ? 'dark' : 'light');
     };
 
     media.addEventListener('change', onChange);
