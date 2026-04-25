@@ -4,6 +4,16 @@ A clean, modern, professional React + TypeScript component library for the Gisel
 
 `@alexrebula/giselle-ui` is designed as a production-ready, publishable npm package with strong defaults for accessibility, theming, and developer experience.
 
+## Status
+
+> **Beta — active development. Not yet published to npm.**
+>
+> First public npm release is planned alongside the portfolio site launch (May/June 2026).
+> Until then, reference from disk using `"file:../path/to/giselle-ui"` in your `package.json`.
+
+**The test suite will receive a full review and overhaul before the first npm publish.**
+No package ships to npm until the tests meet the same standard as the implementation.
+
 ## Tech Stack
 
 - React 19
@@ -12,6 +22,8 @@ A clean, modern, professional React + TypeScript component library for the Gisel
 - Storybook 8
 
 ## Installation
+
+> **Not yet published to npm.** This will work after the package is released.
 
 ```bash
 npm install @alexrebula/giselle-ui
@@ -102,8 +114,10 @@ Stay tuned — the first components will be published soon.
 
 ---
 
-Made with ❤️ by [Alex Rebula](https://github.com/AlexRebula)
-
 ## License
 
 MIT
+
+---
+
+Made with ❤️ by [Alex Rebula](https://github.com/AlexRebula)
