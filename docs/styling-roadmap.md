@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+sidebar_label: 'Styling Roadmap'
+---
+
 # giselle-ui — Styling Roadmap
 
 This document defines the styling strategy for `@alexrebula/giselle-ui`. The library is
