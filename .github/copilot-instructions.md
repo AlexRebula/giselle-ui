@@ -11,10 +11,11 @@ proprietary theme or kit** — including any theme from the MUI Store, especiall
 
 **Hard rules — non-negotiable:**
 
-1. **No MUI theme code.** The following identifiers must never appear in this package if they include proprietary code from any MUI Theme, premium or free / any other commercial theme such as:
+1. **No third-party theme code.** Never copy or adapt code or utilities from any MUI Store
+   theme, commercial theme, or proprietary kit — free or paid. Identifiers such as
    `varAlpha`, `varFade`, `varBlur`, `customShadows`, `_mock`, or any other utility
-   that originated in any of the MUI premium theme. If similar functionality is needed, write it
-   from scratch independently.
+   originating in a third-party theme must not appear in this package. If similar
+   functionality is needed, write it from scratch independently.
 
 2. **No imports from the `alexrebula` portfolio.** This package must not import from
    `alexrebula/src/` or any path inside that private repo.
