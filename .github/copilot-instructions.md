@@ -1,20 +1,21 @@
 # @alexrebula/giselle-ui — Copilot Instructions
 
 This is a **public, MIT-licensed** React + TypeScript component library.
-It is independent of MUI and the Minimals theme.
+It is independent of MUI and any MUI theme.
 
 ## ⚠️ Copyright rule — read this first
 
 This package is MIT-licensed and public. It must contain **zero code derived from any
-proprietary theme or kit** — including the Minimals MUI kit used in the sibling
+proprietary theme or kit** — including any theme from the MUI Store, especially any commercial kit used in the sibling
 `alexrebula` portfolio project.
 
 **Hard rules — non-negotiable:**
 
-1. **No Minimals code.** The following identifiers must never appear in this package:
+1. **No third-party theme code.** Never copy or adapt code or utilities from any MUI Store
+   theme, commercial theme, or proprietary kit — free or paid. Identifiers such as
    `varAlpha`, `varFade`, `varBlur`, `customShadows`, `_mock`, or any other utility
-   that originated in the Minimals theme. If similar functionality is needed, write it
-   from scratch independently.
+   originating in a third-party theme must not appear in this package. If similar
+   functionality is needed, write it from scratch independently.
 
 2. **No imports from the `alexrebula` portfolio.** This package must not import from
    `alexrebula/src/` or any path inside that private repo.
@@ -109,3 +110,63 @@ Barrel export in `src/index.ts`. New components must be added to the barrel.
 2. **Storybook story for Button** — verify scoped class in DOM, confirm `className` override works.
 3. **Additional components** — raise component ideas against the rule: does this solve a
    recurring accessibility or styling problem that is non-trivial to get right without help?
+
+---
+
+## MUI Store quality bar (enforce always — not just before submission)
+
+These rules come directly from the MUI Store submission requirements
+(`https://support.mui.com/hc/en-us/articles/11440613164444`). They are development
+standards, not pre-submission checklists. Every component must comply from the moment
+it is written.
+
+### Do not use `React.FC`
+
+Use plain function declarations. `React.FC` is redundant, adds implicit `children` typing
+baggage, and is explicitly banned by the MUI Store quality bar.
+
+```tsx
+// ❌ wrong
+const MyComponent: React.FC<MyProps> = ({ foo }) => { ... }
+
+// ✅ correct
+function MyComponent({ foo }: MyProps) { ... }
+```
+
+**Enforcement:** Any new component using `React.FC` must be refactored before merge.
+
+### Use `shouldForwardProp` on every reusable `styled()` component
+
+If a component uses `styled()`, it **must** declare `shouldForwardProp` to prevent custom
+props from leaking into the DOM.
+
+```tsx
+// ✅ correct
+const StyledDiv = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'active',
+})<{ active: boolean }>`
+  color: ${({ active }) => active ? 'red' : 'black'};
+`;
+```
+
+Currently: no `styled()` components in this library. This rule fires the moment the
+first one is introduced.
+
+### No source maps in the distributed build
+
+`sourcemap: true` is acceptable for local development. Any **production distribution**
+build must set `sourcemap: false`.
+
+### Browser support targets
+
+All components must work in — and must not use APIs, CSS features, or DOM behaviour
+unavailable in — the current MUI Core supported browser matrix.
+
+Treat the upstream MUI Core browser support matrix as the source of truth rather than
+duplicating specific version numbers in this file.
+### Images and SVGs
+
+- No low-resolution raster images. Any raster asset must look sharp at >200 PPI.
+- SVG files must be optimised — no verbose metadata, no inline raster data.
+- If SVGs are added to Storybook or a demo app, run them through `svgo` before committing.
+
