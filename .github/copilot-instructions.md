@@ -109,3 +109,71 @@ Barrel export in `src/index.ts`. New components must be added to the barrel.
 2. **Storybook story for Button** — verify scoped class in DOM, confirm `className` override works.
 3. **Additional components** — raise component ideas against the rule: does this solve a
    recurring accessibility or styling problem that is non-trivial to get right without help?
+
+---
+
+## MUI Store quality bar (enforce always — not just before submission)
+
+These rules come directly from the MUI Store submission requirements
+(`https://support.mui.com/hc/en-us/articles/11440613164444`). They are development
+standards, not pre-submission checklists. Every component must comply from the moment
+it is written.
+
+### Do not use `React.FC`
+
+Use plain function declarations. `React.FC` is redundant, adds implicit `children` typing
+baggage, and is explicitly banned by the MUI Store quality bar.
+
+```tsx
+// ❌ wrong
+const MyComponent: React.FC<MyProps> = ({ foo }) => { ... }
+
+// ✅ correct
+function MyComponent({ foo }: MyProps) { ... }
+```
+
+**Enforcement:** Any new component using `React.FC` must be refactored before merge.
+
+### Use `shouldForwardProp` on every reusable `styled()` component
+
+If a component uses `styled()`, it **must** declare `shouldForwardProp` to prevent custom
+props from leaking into the DOM.
+
+```tsx
+// ✅ correct
+const StyledDiv = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'active',
+})<{ active: boolean }>`
+  color: ${({ active }) => active ? 'red' : 'black'};
+`;
+```
+
+Currently: no `styled()` components in this library. This rule fires the moment the
+first one is introduced.
+
+### No source maps in the distributed build
+
+`sourcemap: true` is acceptable for local development. Any **production distribution**
+build must set `sourcemap: false`.
+
+### Browser support targets
+
+All components must work in — and must not use APIs or CSS features unavailable in — the
+following minimum versions:
+
+| Browser | Minimum |
+|---------|---------|
+| Chrome | ≥ 121 |
+| Firefox | ≥ 121 |
+| Edge | ≥ 117 |
+| Safari (macOS + iOS) | ≥ 17.0 |
+
+This matches the MUI Core supported browser matrix. Do not use CSS features, JS APIs, or
+DOM behaviour that falls outside these targets.
+
+### Images and SVGs
+
+- No low-resolution raster images. Any raster asset must look sharp at >200 PPI.
+- SVG files must be optimised — no verbose metadata, no inline raster data.
+- If SVGs are added to Storybook or a demo app, run them through `svgo` before committing.
+
