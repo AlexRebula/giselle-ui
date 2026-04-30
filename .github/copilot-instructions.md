@@ -135,22 +135,16 @@ function MyComponent({ foo }: MyProps) { ... }
 
 **Enforcement:** Any new component using `React.FC` must be refactored before merge.
 
-### Use `shouldForwardProp` on every reusable `styled()` component
+### `styled()` / `shouldForwardProp` note
 
-If a component uses `styled()`, it **must** declare `shouldForwardProp` to prevent custom
-props from leaking into the DOM.
+This library does **not** currently use `styled()` and must not introduce MUI,
+emotion-specific, or proprietary styling APIs through examples or new component code.
+If the project ever explicitly adopts a **non-MUI, fully open-source** `styled` helper in
+the future, that helper must include an equivalent prop-filtering mechanism (for example,
+`shouldForwardProp`) so custom styling props do not leak into the DOM.
 
-```tsx
-// ✅ correct
-const StyledDiv = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'active',
-})<{ active: boolean }>`
-  color: ${({ active }) => active ? 'red' : 'black'};
-`;
-```
-
-Currently: no `styled()` components in this library. This rule fires the moment the
-first one is introduced.
+Until such a helper is intentionally added to the stack, prefer the current styling
+approach documented in this file: CSS Custom Properties and semantic class names.
 
 ### No source maps in the distributed build
 
