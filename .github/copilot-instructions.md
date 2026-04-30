@@ -1,19 +1,19 @@
 # @alexrebula/giselle-ui — Copilot Instructions
 
 This is a **public, MIT-licensed** React + TypeScript component library.
-It is independent of MUI and the Minimals theme.
+It is independent of MUI and the or any MUI theme.
 
 ## ⚠️ Copyright rule — read this first
 
 This package is MIT-licensed and public. It must contain **zero code derived from any
-proprietary theme or kit** — including the Minimals MUI kit used in the sibling
+proprietary theme or kit** — including any theme from the MUI Store, especially any commercial kit used in the sibling
 `alexrebula` portfolio project.
 
 **Hard rules — non-negotiable:**
 
-1. **No Minimals code.** The following identifiers must never appear in this package:
+1. **No MUI theme code.** The following identifiers must never appear in this package if they include proprietary code from any MUI Theme, premium or free / any other commercial theme such as:
    `varAlpha`, `varFade`, `varBlur`, `customShadows`, `_mock`, or any other utility
-   that originated in the Minimals theme. If similar functionality is needed, write it
+   that originated in any of the MUI premium theme. If similar functionality is needed, write it
    from scratch independently.
 
 2. **No imports from the `alexrebula` portfolio.** This package must not import from
