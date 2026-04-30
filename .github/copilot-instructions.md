@@ -1,7 +1,7 @@
 # @alexrebula/giselle-ui — Copilot Instructions
 
 This is a **public, MIT-licensed** React + TypeScript component library.
-It is independent of MUI and the or any MUI theme.
+It is independent of MUI and any MUI theme.
 
 ## ⚠️ Copyright rule — read this first
 
