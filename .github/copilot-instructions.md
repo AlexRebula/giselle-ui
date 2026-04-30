@@ -158,19 +158,11 @@ build must set `sourcemap: false`.
 
 ### Browser support targets
 
-All components must work in — and must not use APIs or CSS features unavailable in — the
-following minimum versions:
+All components must work in — and must not use APIs, CSS features, or DOM behaviour
+unavailable in — the current MUI Core supported browser matrix.
 
-| Browser | Minimum |
-|---------|---------|
-| Chrome | ≥ 121 |
-| Firefox | ≥ 121 |
-| Edge | ≥ 117 |
-| Safari (macOS + iOS) | ≥ 17.0 |
-
-This matches the MUI Core supported browser matrix. Do not use CSS features, JS APIs, or
-DOM behaviour that falls outside these targets.
-
+Treat the upstream MUI Core browser support matrix as the source of truth rather than
+duplicating specific version numbers in this file.
 ### Images and SVGs
 
 - No low-resolution raster images. Any raster asset must look sharp at >200 PPI.
