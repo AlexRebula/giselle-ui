@@ -4,6 +4,18 @@ A clean, modern, professional React + TypeScript component library for the Gisel
 
 `@alexrebula/giselle-ui` is designed as a production-ready, publishable npm package with strong defaults for accessibility, theming, and developer experience.
 
+---
+
+## The mango tree
+
+The Giselle packages are a Philippine mango tree. The trunk is the shared foundation — CSS custom property conventions, TypeScript patterns, accessibility discipline — that all packages grow from. Each package is one mango on the tree, at its own stage of ripeness.
+
+`giselle-ui` is the **green mango** 🟢 — the youngest branch, still finding its shape. Independent of MUI by design: it themes through CSS custom properties and carries no proprietary runtime dependency. When the CSS Modules phase ships and the component set grows, this mango starts turning yellow-green.
+
+Ripeness scale: 🟢 alpha → 🟡 beta → 🟠 stable → 🟤 LTS.
+
+---
+
 ## Status
 
 > **Beta — active development. Not yet published to npm.**

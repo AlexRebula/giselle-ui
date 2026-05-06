@@ -46,7 +46,7 @@ system is the right foundation. The open question is authoring ergonomics and lo
 
 ## Recommendation
 
-### Phase A — CSS Modules (recommended immediately)
+### Phase A — CSS Modules — Current Strategy (recommended immediately)
 
 **Why:** The current global class names (`giselle-button`) work fine now but do not scale. As
 the library grows, naming collisions with consumer stylesheets become a real risk. CSS Modules
@@ -71,7 +71,7 @@ the scoping is transparent.
 
 ---
 
-### Phase B — Tailwind CSS v4 (optional, adopt when consumer ecosystem warrants it)
+### Phase B — Tailwind CSS v4 — Future Options (optional, adopt when consumer ecosystem warrants it)
 
 **Why Tailwind (if you adopt it):**
 - Largest community of any CSS framework by a significant margin
@@ -102,7 +102,7 @@ already use Tailwind — so the class language is shared rather than siloed in t
 
 ---
 
-### Phase C — Vanilla Extract (only if token system becomes the primary concern)
+### Phase C — Vanilla Extract — Future Options (only if token system becomes the primary concern)
 
 Vanilla Extract is excellent if:
 - The library grows to 50+ components with a complex design token hierarchy
