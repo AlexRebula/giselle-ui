@@ -38,6 +38,22 @@ Properties. No MUI. Designed to be publishable and usable without any external t
 - Storybook 8 for visual development
 - No MUI, no proprietary dependencies
 
+## Brand identity — the Giselle mango tree
+
+The Giselle ecosystem is named after the Filipino partner of the author. The Philippine national fruit is the Carabao mango — both the logo mark and the ecosystem metaphor.
+
+- **The tree** = shared foundation: CSS custom property conventions, TypeScript patterns, accessibility discipline
+- **Each branch** = a package (`giselle-mui`, `giselle-sections-sdk`, `giselle-ui`, `giselle-docs`)
+- **Each mango** = a release at its own ripeness stage
+
+Ripeness scale: 🟢 green = alpha · 🟡 yellow-green = beta · 🟠 golden = stable · 🟤 amber = LTS
+
+`giselle-ui` is the **green mango** — youngest branch, independent of MUI, themed via CSS custom properties (`--giselle-*` tokens).
+
+**Palette:** Mango gold `#F5A623` · Deep grove `#2E7D32` · Lime `#76C442` · Ripe flesh `#FFF3CD` · Dark grove `#1A2B1A` · Warm tan `#F5EDDC`
+
+**WC-6:** The planned wide hero illustration — watercolour mango tree with per-package label badges. See `alexrebula/docs/brand/logo-concept.md` Track A.
+
 ## Component rules (non-negotiable)
 
 1. **Zero new runtime dependencies.** `@radix-ui/react-slot` is the only allowed runtime dep.
@@ -110,6 +126,21 @@ Barrel export in `src/index.ts`. New components must be added to the barrel.
 2. **Storybook story for Button** — verify scoped class in DOM, confirm `className` override works.
 3. **Additional components** — raise component ideas against the rule: does this solve a
    recurring accessibility or styling problem that is non-trivial to get right without help?
+
+---
+
+## Contributor profiles — code review tone
+
+This repository welcomes contributors at all experience levels. When reviewing any PR:
+
+- **Hold the same quality standard regardless of contributor experience.** Do not lower the bar — explain what needs to change and why, just as you would for any contributor.
+- **Explain the why, not just the what.** Do not say "use `const` here"; say "use `const` here because this value never changes — it signals to anyone reading the code that this was intentional, not a mistake."
+- **One issue per comment.** Do not stack multiple changes into one comment.
+- **Acknowledge what is correct before noting what to improve.**
+- **When something is wrong, show what correct looks like** — not just "this is wrong"; show the fixed version and explain why it is better.
+- **Four sentences max per comment.** Link to MDN or the repo README instead of writing a lecture inline.
+- **No jargon without a definition.** If a term like "idempotent", "side effect", or "type assertion" appears in a comment, define it in the same sentence.
+- **Do not ask for perfection.** If the code is correct, passes the quality gate, and solves the problem — it ships. Encourage, merge, move on.
 
 ---
 
