@@ -169,4 +169,12 @@ than both being applied and the last one winning by specificity.
 
 ---
 
-_Last updated: April 2026._
+## Quality Infrastructure
+
+| Task                                                                      | Status                      |
+| ------------------------------------------------------------------------- | --------------------------- |
+| PR template (`.github/pull_request_template.md`) — What / Why / Type / Checklist / Notes | ✅ Done — 9 May 2026 |
+
+---
+
+_Last updated: May 2026._
